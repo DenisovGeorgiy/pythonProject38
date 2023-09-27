@@ -1,25 +1,22 @@
 class FlatIterator:
 
     def __init__(self, list_of_list):
-        self.list = list_of_list
-        self.new_list = []
+        self.list_of_list = list_of_list
 
     def __iter__(self):
-        self.list_iter = iter(self.list)
-        self.counter = -1
+        self.list_iterator = iter(self.list_of_list)
+        self.list_ = []
+        self.cur = -1
         return self
 
     def __next__(self):
-        self.counter += 1
-        if len(self.list) == self.counter:
-            self.list = None
-            self.counter = 0
-            if self.list is None:
-                self.list = next(self.list_iter)
-        return self.list[self.counter]
-
-
-        return item
+        self.cur += 1
+        if len(self.list_) == self.cur:
+            self.list_ = None
+            self.cur = 0
+            if self.list_ is None:
+                self.list_ = next(self.list_iterator)
+        return self.list_[self.cur]
 
 
 def test_1():
